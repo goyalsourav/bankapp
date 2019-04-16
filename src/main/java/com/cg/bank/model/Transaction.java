@@ -20,7 +20,7 @@ public class Transaction {
 	private int amount;
 	
 	  @ManyToOne
-	  @JoinColumn(name = "account_id")
+	  @JoinColumn(name = "account_id") 
 	 
 	private Account account;
 

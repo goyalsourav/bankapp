@@ -9,12 +9,12 @@
 <body>
 	<h2>welcome to the user login page</h2>
 	<form action="admin/userlogin" method="post">
-		Login Id <input type="text" name="username" required autofocus /> <br>
-		Password <input type="password" name="password" required autofocus />
+		Login Id <input type="text" name="id" required autofocus /> <br>
+		Password <input type="password" name="mobile" required autofocus />
 		<br> <input type="Submit" value=" User Login">
 	</form>
 	<br><hr>
-	we respect your privacy
+	<a href="index.jsp">Home</a>
 	<hr>
 </body>
 </html>

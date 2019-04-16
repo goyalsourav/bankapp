@@ -13,5 +13,7 @@
 		<input type="Submit" value="withdraw">
 
 	</form>
+	<br><hr>
+	<a href="menu.jsp">Home</a>
 </body>
 </html>

@@ -13,5 +13,7 @@
 		Password <input type="password" name="password" required autofocus />
 		<br> <input type="Submit" value="Manager Login">
 	</form>
+	<br><hr>
+	<a href="index.jsp">Home</a>
 </body>
 </html>

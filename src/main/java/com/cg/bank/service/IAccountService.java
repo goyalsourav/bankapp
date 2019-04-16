@@ -11,4 +11,6 @@ public interface IAccountService {
 	public void save(Account account);
 
 	public Account findById(Integer id);
+	
+	public Account findByIdAndMobile(Integer id, String mobile);
 }

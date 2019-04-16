@@ -17,5 +17,7 @@
 
 		<input type="submit" value="Add account">
 	</form>
+	<br><hr>
+	<a href="index.jsp">Home</a>
 </body>
 </html>

@@ -31,5 +31,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<br><hr>
+	<a href="menu.jsp">Home</a>
 </body>
 </html>

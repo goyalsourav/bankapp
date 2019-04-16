@@ -20,7 +20,7 @@ public class Account {
 	private int id;
 	private String accounttype;
 	private double balance;
-	private String name;
+	private String name; 
 	private String mobile;
 
 	/*

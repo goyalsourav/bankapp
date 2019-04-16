@@ -13,5 +13,8 @@
 
 	</form>
 	<h2>The Balance is:</h2>${ACCOUNT.balance}
+	
+	<br><hr>
+	<a href="menu.jsp">Home</a>
 </body>
 </html>

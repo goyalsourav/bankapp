@@ -31,5 +31,15 @@ public class AccountServiceImpl implements IAccountService {
 		Account account = accountDao.findById(id).get();
 		return account;
 	}
-
+	
+	@Override
+	public Account findByIdAndMobile(Integer id, String mobile) {
+		Account account = null;
+		try {
+			account = accountDao.findByIdAndMobile(id, mobile);
+		} catch (Exception e) {
+			account = null;
+		}
+		return account;
+	}
 }

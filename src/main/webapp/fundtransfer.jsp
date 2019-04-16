@@ -25,6 +25,7 @@
 			</tr>
 		</table>
 	</form>
+	<br><hr>
 	<a href="home.jsp">Home</a>
 </body>
 </html>

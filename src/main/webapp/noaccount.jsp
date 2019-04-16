@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>Welcome</h3>
-	<a href="manager.jsp">Login as Manager</a>
-	<br>
-	<a href="user.jsp">Login as User</a>
-	<br>
-	
-	
+<h3>YOUR ACCOUNT DOES NOT EXISTS</h3>
+<br>
+<hr>
+	<a href="../index.jsp"> Back to Home</a>
 </body>
 </html>
