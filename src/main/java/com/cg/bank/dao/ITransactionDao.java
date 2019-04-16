@@ -8,6 +8,6 @@ import com.cg.bank.model.Transaction;
 
 public interface ITransactionDao extends JpaRepository<Transaction, Integer> {
 
-	public List<Transaction> findByCustomerId(Integer id);
+	public List<Transaction> findByAccountId(Integer id);
 
 }
