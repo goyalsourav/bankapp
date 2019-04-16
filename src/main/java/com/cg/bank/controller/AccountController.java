@@ -33,7 +33,18 @@ public class AccountController {
 		modelAndView.addObject("ACCOUNTLIST", accountlist);
 		return modelAndView;
 	}
-
+	
+	/*
+	 * //for printing the transaction done by a particular user
+	 * 
+	 * @GetMapping("/transaction") public ModelAndView gettransaction(@RequestParam
+	 * int id) {
+	 * 
+	 * List<Transaction> list1 = transactionService.findByAccountId(id);
+	 * ModelAndView modelAndView = new ModelAndView("printtransaction");
+	 * 
+	 * modelAndView.addObject("PRINT", list1); return modelAndView; }
+	 */
 	@PostMapping("login")
 	public ModelAndView login(@RequestParam String username, @RequestParam String password) {
 		String a = username;
@@ -75,13 +86,23 @@ public class AccountController {
 	}
 	
 	@GetMapping("update")
-	public ModelAndView deposit(@RequestParam Integer id,@RequestParam double deposit) {
+	public ModelAndView deposit(@RequestParam Integer id,@RequestParam int deposit) {
 		ModelAndView modelAndView;
 		Account account =accountService.findById(id);
 		double oldBalance=account.getBalance();
 		double newBalance=deposit+oldBalance;	
 		account.setBalance(newBalance);
+		
+		
+		Transaction transaction = new Transaction();
+		transaction.setAmount(deposit);
+		transaction.setType("DEPOSITED");
+		transaction.setAccount(account);
+		transactionService.save(transaction);
 		accountService.save(account);
+		
+		
+		
 		modelAndView = new ModelAndView("menu");
 		return modelAndView;
 	}	

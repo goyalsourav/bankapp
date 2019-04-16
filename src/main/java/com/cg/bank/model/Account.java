@@ -23,6 +23,20 @@ public class Account {
 	private String name;
 	private String mobile;
 
+	/*
+	 * @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL) private
+	 * Set<Transaction> transaction = new HashSet<>();
+	 * 
+	 * public void addTransaction(Transaction transaction) {
+	 * transaction.setAccount(this); // this will avoid nested cascade
+	 * this.getTransaction().add(transaction); }
+	 * 
+	 * public Set<Transaction> getTransaction() { return transaction; }
+	 * 
+	 * public void setTransaction(Set<Transaction> transaction) { this.transaction =
+	 * transaction; }
+	 */
+
 	public int getId() {
 		return id;
 	}

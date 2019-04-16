@@ -20,6 +20,7 @@
 				<th>Transaction Id</th>
 				<th>Amount</th>
 				<th>Type</th>
+				<th>Account</th>
 
 			</tr>
 		</thead>
@@ -29,6 +30,7 @@
 					<td>${transaction.id}</td>
 					<td>${transaction.amount}</td>
 					<td>${transaction.type}</td>
+					<td>${transaction.account}</td> 
 
 
 				</tr>
