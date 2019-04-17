@@ -34,7 +34,7 @@ public class AccountController {
 		return modelAndView;
 	}
  
-	@PostMapping("login") 
+	@PostMapping("login")  
 	public ModelAndView login(@RequestParam String username, @RequestParam String password) {
 		String a = username;
 		String b = password;
@@ -94,8 +94,8 @@ public class AccountController {
 		transactionService.save(transaction);
 		accountService.save(account);
 
-		modelAndView = new ModelAndView("showbalance");
-		 modelAndView.addObject("ACCOUNT",newBalance); 
+		modelAndView = new ModelAndView("balance");
+		modelAndView.addObject("ACCOUNT",newBalance); 
 		return modelAndView;
 	}
 
@@ -114,7 +114,7 @@ public class AccountController {
 		transaction.setAccount(account);
 		transactionService.save(transaction);
 		accountService.save(account);
-		modelAndView = new ModelAndView("showbalance");
+		modelAndView = new ModelAndView("balance");
 		 modelAndView.addObject("ACCOUNT",newBalance); 
 		}
 		else{
@@ -162,7 +162,7 @@ public class AccountController {
 		receive.setAccount(reciver);
 		transactionService.save(receive);
 
-		modelAndView = new ModelAndView("showbalance");
+		modelAndView = new ModelAndView("balance");
 		 modelAndView.addObject("ACCOUNT",newBalance); 
 		}
 		else{
