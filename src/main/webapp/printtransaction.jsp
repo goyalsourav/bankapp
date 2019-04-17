@@ -6,7 +6,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="Anything.css">
 </head>
+
 <body>
 	<h3>list of Transaction Details</h3>
 	<form action="admin/showTransaction" method="get">
@@ -37,6 +39,6 @@
 			</c:forEach>
 	</table>
 	<br><hr>
-	<a href="menu.jsp">Home</a>
+	<a href="../menu.jsp">Home</a>
 </body>
 </html>

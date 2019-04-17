@@ -34,18 +34,7 @@ public class AccountController {
 		return modelAndView;
 	}
  
-	/*
-	 * //for printing the transaction done by a particular user
-	 * 
-	 * @GetMapping("/transaction") public ModelAndView gettransaction(@RequestParam
-	 * int id) {
-	 * 
-	 * List<Transaction> list1 = transactionService.findByAccountId(id);
-	 * ModelAndView modelAndView = new ModelAndView("printtransaction");
-	 * 
-	 * modelAndView.addObject("PRINT", list1); return modelAndView; }
-	 */
-	@PostMapping("login")
+	@PostMapping("login") 
 	public ModelAndView login(@RequestParam String username, @RequestParam String password) {
 		String a = username;
 		String b = password;
@@ -91,9 +80,9 @@ public class AccountController {
 	}
 
 	@GetMapping("update")
-	public ModelAndView deposit(@RequestParam Integer id, @RequestParam int deposit) {
+	public ModelAndView deposit(@RequestParam int deposit) {
 		ModelAndView modelAndView;
-		Account account = accountService.findById(id);
+		Account account = accountService.findById(ID);
 		double oldBalance = account.getBalance();
 		double newBalance = deposit + oldBalance;
 		account.setBalance(newBalance);
@@ -105,14 +94,15 @@ public class AccountController {
 		transactionService.save(transaction);
 		accountService.save(account);
 
-		modelAndView = new ModelAndView("menu");
+		modelAndView = new ModelAndView("showbalance");
+		 modelAndView.addObject("ACCOUNT",newBalance); 
 		return modelAndView;
 	}
 
 	@GetMapping("update1")
-	public ModelAndView withdraw(@RequestParam Integer id, @RequestParam int withdraw) {
+	public ModelAndView withdraw(@RequestParam int withdraw) {
 		ModelAndView modelAndView;
-		Account account = accountService.findById(id);
+		Account account = accountService.findById(ID);
 		double oldBalance = account.getBalance();
 		if(oldBalance > withdraw) {
 		double newBalance = oldBalance - withdraw;
@@ -124,7 +114,8 @@ public class AccountController {
 		transaction.setAccount(account);
 		transactionService.save(transaction);
 		accountService.save(account);
-		modelAndView = new ModelAndView("menu");
+		modelAndView = new ModelAndView("showbalance");
+		 modelAndView.addObject("ACCOUNT",newBalance); 
 		}
 		else{
 			modelAndView = new ModelAndView("error");
@@ -132,20 +123,21 @@ public class AccountController {
 		
 		return modelAndView;
 	}
-
+    
 	@GetMapping("/balance")
-	public ModelAndView showbalance(@RequestParam Integer id) {
+	public ModelAndView showbalance(/* @RequestParam int id */ ) {
 		ModelAndView modelAndView;
-		Account account = accountService.findById(id);
+		Account account = accountService.findById(ID);
+		/* double bal = account.getBalance(); */		
 		modelAndView = new ModelAndView("showbalance");
-		modelAndView.addObject("ACCOUNT", account);
+		modelAndView.addObject("ACCOUNT",account);
 		return modelAndView;
 	}
 
 	@GetMapping("/fundTransfer")
-	public ModelAndView fundTransfer(@RequestParam int id1, @RequestParam int id, @RequestParam int credit) {
+	public ModelAndView fundTransfer(@RequestParam int id, @RequestParam int credit) {
 		ModelAndView modelAndView;
-		Account sender = accountService.findById(id1);
+		Account sender = accountService.findById(ID);
 		double oldBalance = sender.getBalance();
 		if(oldBalance > credit) {
 		double newBalance = oldBalance - credit;
@@ -170,7 +162,8 @@ public class AccountController {
 		receive.setAccount(reciver);
 		transactionService.save(receive);
 
-		modelAndView = new ModelAndView("menu");
+		modelAndView = new ModelAndView("showbalance");
+		 modelAndView.addObject("ACCOUNT",newBalance); 
 		}
 		else{
 			modelAndView = new ModelAndView("error");
@@ -179,7 +172,7 @@ public class AccountController {
 	}
 
 	@GetMapping("showTransaction")
-	public ModelAndView showTransaction(@RequestParam int id) {
+	public ModelAndView showTransaction( @RequestParam int id ) {
 
 		// Find all the transactions made by the customer with the Id
 		List<Transaction> transactionsList = transactionService.findByAccountId(id);

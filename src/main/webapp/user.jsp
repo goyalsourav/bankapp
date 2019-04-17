@@ -14,7 +14,7 @@
 		<br> <input type="Submit" value=" User Login">
 	</form>
 	<br><hr>
-	<a href="index.jsp">Home</a>
+	<a href="../index.jsp">Home</a>
 	<hr>
 </body>
 </html>
